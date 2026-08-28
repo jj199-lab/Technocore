@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technocore.chat Logo Playground · FLOP Network Standards</title>
+    <meta name="description" content="Interactive sandbox and showcase for the Technocore.chat logo design concepts, adhering to the FLOP Network design standards." />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+            <header class="app-header">
+                <div class="eyebrow">FLOP Network Design System</div>
+                <h1>Technocore.chat</h1>
+                <p class="subtitle">Logo Playground &amp; Standards Checker</p>
+            </header>
+
+            <section class="control-group">
+                <h2>1. Select Concept</h2>
+                <div class="tabs" id="concept-tabs">
+                    <button class="tab-btn active" data-concept="tri-agent" id="tab-tri-agent">
+                        <span class="tab-num">01</span>
+                        <span class="tab-name">Tri-Agent</span>
+                    </button>
+                    <button class="tab-btn" data-concept="synaptic" id="tab-synaptic">
+                        <span class="tab-num">02</span>
+                        <span class="tab-name">Synaptic</span>
+                    </button>
+                    <button class="tab-btn" data-concept="t-core" id="tab-t-core">
+                        <span class="tab-num">03</span>
+                        <span class="tab-name">T-Core Grid</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h2>2. Color Way &amp; State</h2>
+                <div class="color-options">
+                    <button class="color-btn active" data-color="cyan" id="color-cyan">
+                        <span class="color-swatch swatch-cyan"></span>
+                        <span class="color-label">Cyan Accent</span>
+                    </button>
+                    <button class="color-btn" data-color="green" id="color-green">
+                        <span class="color-swatch swatch-green"></span>
+                        <span class="color-label">Electric Green</span>
+                    </button>
+                    <button class="color-btn" data-color="blue" id="color-blue">
+                        <span class="color-swatch swatch-blue"></span>
+                        <span class="color-label">FLOP Blue</span>
+                    </button>
+                    <button class="color-btn" data-color="monochrome" id="color-mono">
+                        <span class="color-swatch swatch-mono"></span>
+                        <span class="color-label">One-Color</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h2>3. Display Options</h2>
+                <div class="toggle-grid">
+                    <label class="toggle-control">
+                        <input type="checkbox" id="toggle-grid-lines" checked />
+                        <span class="control-label">Show Pixel Grid (8x8)</span>
+                    </label>
+                    <label class="toggle-control">
+                        <input type="checkbox" id="toggle-theme" />
+                        <span class="control-label">Light Substrate (Ice White)</span>
+                    </label>
+                </div>
+                
+                <div class="select-wrapper">
+                    <label for="lockup-select">Lockup Style</label>
+                    <select id="lockup-select">
+                        <option value="icon">Icon Only</option>
+                        <option value="horizontal" selected>Horizontal Wordmark</option>
+                        <option value="stacked">Stacked Wordmark</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Contrast Checker Panel -->
+            <section class="panel panel-contrast">
+                <h3>Contrast Validation (WCAG)</h3>
+                <div class="contrast-row">
+                    <div class="contrast-score" id="contrast-val">17.4:1</div>
+                    <div class="contrast-status-badge" id="contrast-badge">AAA Pass</div>
+                </div>
+                <p class="role-desc" id="contrast-desc">
+                    Ice White text on Base ground provides excellent readability (17.4:1). Accent is safe for primary signals.
+                </p>
+            </section>
+
+            <!-- Guidelines Compliance Checklist -->
+            <section class="panel panel-compliance">
+                <h3>FLOP Compliance Checklist</h3>
+                <ul class="checklist">
+                    <li class="checked" id="chk-grid">Grid-Exact Geometry (8x8 Grid)</li>
+                    <li class="checked" id="chk-aperture">Central Aperture (Empty Core)</li>
+                    <li class="checked" id="chk-colors">Official FLOP Palette Only</li>
+                    <li class="checked" id="chk-contrast">WCAG Contrast Safe</li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Main Display Area -->
+        <main class="main-display">
+            <!-- Concept Showcase Canvas -->
+            <section class="canvas-card" id="preview-canvas-card">
+                <div class="canvas-header">
+                    <span class="canvas-title" id="canvas-title-text">Concept 01: The Tri-Agent Core</span>
+                    <span class="grid-status" id="grid-status-text">Grid scale: 1 module = 10px</span>
+                </div>
+                <div class="canvas-viewport" id="canvas-viewport">
+                    <!-- Dynamic SVG injected here -->
+                    <div id="svg-container"></div>
+                </div>
+                <div class="canvas-footer">
+                    <div class="scale-control">
+                        <label for="scale-slider">Display Scale:</label>
+                        <input type="range" id="scale-slider" min="60" max="300" value="180" />
+                        <span id="scale-val">180px</span>
+                    </div>
+                    <button class="btn btn-secondary" id="btn-toggle-guides">Toggle Guides</button>
+                </div>
+            </section>
+
+            <!-- Concept Descriptions -->
+            <section class="description-card">
+                <h2 id="concept-title">The Tri-Agent Core</h2>
+                <p class="concept-ethos" id="concept-ethos">
+                    <strong>Ethos:</strong> Represents communication, commerce, and memory converging into a unified space.
+                </p>
+                <div class="rationale-grid">
+                    <div class="rationale-item">
+                        <h4>Geometry &amp; Grid</h4>
+                        <p id="desc-geometry">Three overlapping 4x4 octagonal chips aligned to the grid, connected by micro-pipelines. Retains the essential 45° corner cut profile of the FLOP Chip.</p>
+                    </div>
+                    <div class="rationale-item">
+                        <h4>Aperture Symbolism</h4>
+                        <p id="desc-aperture">A shared triangular aperture in the center that reveals the substrate, representing open, trustless agent communication and shared memory.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mockups & Context Section -->
+            <section class="mockup-section">
+                <h2>Real-world Context Mockups</h2>
+                <div class="mockup-grid">
+                    <!-- Dashboard Mockup -->
+                    <div class="mockup-card card-dark">
+                        <h3>Technocore.chat Dashboard</h3>
+                        <div class="mockup-preview preview-dash">
+                            <div class="dash-sidebar">
+                                <div class="dash-logo-area" id="mock-logo-dash"></div>
+                                <ul class="dash-menu">
+                                    <li class="active"><span></span>Agent Room</li>
+                                    <li><span></span>Ledger</li>
+                                    <li><span></span>Memory Core</li>
+                                </ul>
+                            </div>
+                            <div class="dash-main">
+                                <div class="dash-header">
+                                    <span>Room: #agent-communication-09</span>
+                                    <span class="badge badge-success">Verified</span>
+                                </div>
+                                <div class="dash-messages">
+                                    <div class="msg"><span class="msg-sender">[Agent_01]</span> <span class="msg-text">Requesting transaction signature...</span></div>
+                                    <div class="msg"><span class="msg-sender">[Agent_02]</span> <span class="msg-text">Verifying proof against FLOP block 19283...</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mascot Integration Mockup -->
+                    <div class="mockup-card card-dark">
+                        <h3>FLOP Mascot Integration</h3>
+                        <p class="mockup-caption">Mascot V3.0 wearing the custom Technocore Chip medallion.</p>
+                        <div class="mockup-preview preview-mascot">
+                            <!-- Mascot SVG will be loaded here -->
+                            <div id="mascot-svg-container"></div>
+                        </div>
+                    </div>
+
+                    <!-- Terminal / Proof Explorer -->
+                    <div class="mockup-card card-dark">
+                        <h3>CLI / Proof Explorer</h3>
+                        <div class="mockup-preview preview-terminal">
+                            <div class="term-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="term-title">agent@technocore: ~</span>
+                            </div>
+                            <div class="term-body">
+                                <p class="term-green">technocore-agent --status --verify</p>
+                                <p class="term-white">Loading Technocore Cryptographic Layer...</p>
+                                <div class="term-logo-art" id="mock-logo-term"></div>
+                                <p class="term-cyan">STATUS: ACTIVE &amp; RUNNING</p>
+                                <p class="term-white">Listening for AI agent instructions on port 8080...</p>
+                                <p class="term-green">✔ Block Proof verified successfully (1.02ms)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favicon & Mobile Grid -->
+                    <div class="mockup-card card-dark">
+                        <h3>Icon Scalability (Favicon / App Icon)</h3>
+                        <div class="mockup-preview preview-scale">
+                            <div class="scale-item">
+                                <div class="scale-icon icon-16" id="mock-icon-16"></div>
+                                <span>16px Favicon</span>
+                            </div>
+                            <div class="scale-item">
+                                <div class="scale-icon icon-24" id="mock-icon-24"></div>
+                                <span>24px Small</span>
+                            </div>
+                            <div class="scale-item">
+                                <div class="scale-icon icon-64" id="mock-icon-64"></div>
+                                <span>64px App Icon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Export Code Console -->
+            <section class="export-card">
+                <div class="export-header">
+                    <h3>SVG Source Code</h3>
+                    <button class="btn btn-secondary btn-sm" id="btn-copy-code">Copy Code</button>
+                </div>
+                <pre class="code-block"><code id="svg-source-output">&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;&lt;/svg&gt;</code></pre>
+                <div class="export-actions">
+                    <button class="btn btn-primary" id="btn-download-svg">Download SVG Asset</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>
